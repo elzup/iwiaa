@@ -14,7 +14,7 @@ function main() {
     packs.push([s, c]);
   }
   fs.writeFileSync("bin/" + file.split(".")[0] + ".min.txt", txt, "utf8");
-  console.log(makeDecodeCmd(packs.reverse()));
+  fs.writeFileSync("bin/iwiaa", makeDecodeCmd(packs.reverse()));
 }
 
 const many = (txt) => {
@@ -34,6 +34,13 @@ const manyPick = (txt) => {
   return Object.entries(counter).sort((a, b) => b[1] - a[1])[0];
 };
 
+const template = `
+#!/usr/bin/env bash
+
+cd \`dirname $0\`
+cat iwiaa.min.txt `;
+
 const makeDecodeCmd = (packs) =>
-  packs.map(([x, y]) => `|sed -e "s/${y}/${x}/g" `).join("");
+  template + packs.map(([x, y]) => `|sed -e "s/${y}/${x}/g" `).join("");
+
 main();
