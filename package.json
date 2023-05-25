@@ -5,7 +5,7 @@
   "bin": "bin/iwiaa",
   "files": [
     "bin/iwiaa",
-    "bin/iwiaa.txt"
+    "bin/iwiaa.min.txt"
   ],
   "scripts": {
     "test": "npm run build &>/dev/null && test.sh",

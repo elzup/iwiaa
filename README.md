@@ -1,0 +1,5 @@
+# iwiaa
+
+```
+npx iwiaa
+```
