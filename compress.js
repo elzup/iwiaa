@@ -37,7 +37,8 @@ const manyPick = (txt) => {
 const template = `
 #!/usr/bin/env bash
 
-cd \`dirname $0\`
+cd "$(dirname "$(readlink -f "$0")")"
+
 cat iwiaa.min.txt `;
 
 const makeDecodeCmd = (packs) =>
