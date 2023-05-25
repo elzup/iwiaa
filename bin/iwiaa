@@ -1,4 +1,5 @@
+
 #!/usr/bin/env bash
 
 cd `dirname $0`
-cat iwiaa.txt
+cat iwiaa.min.txt |sed -e "s/E/BB/g" |sed -e "s/D/C /g" |sed -e "s/C/  /g" |sed -e "s/B/AA/g" |sed -e "s/A/    /g" 
