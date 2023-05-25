@@ -2,13 +2,14 @@
   "name": "iwiaa",
   "version": "1.0.1",
   "description": "print iwi aa",
-	"bin": "bin/iwiaa",
+  "bin": "bin/iwiaa",
   "files": [
     "bin/iwiaa",
     "bin/iwiaa.txt"
   ],
   "scripts": {
-    "test": "bin/iwiaa 1>/dev/null"
+    "test": "bin/iwiaa 1>/dev/null",
+    "build": "node compress.js iwiaa.txt"
   },
   "keywords": [
     "cps"
