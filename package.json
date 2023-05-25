@@ -1,12 +1,14 @@
 {
   "name": "iwiaa",
-  "bin": {
-    "iwiaa": "cat bin/iwiaa.txt"
-  },
   "version": "1.0.1",
   "description": "print iwi aa",
+	"bin": "bin/iwiaa",
+  "files": [
+    "bin/iwiaa",
+    "bin/iwiaa.txt"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "bin/iwiaa 1>/dev/null"
   },
   "keywords": [
     "cps"
