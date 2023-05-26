@@ -3,7 +3,7 @@ const fs = require("fs");
 function main() {
   const file = process.argv[2];
   let txt = fs.readFileSync(file, "utf8");
-  // const counts = chatCounts(txt);
+  // const counts = charCounts(txt);
   // console.log(sortEntries(counts));
 
   const packs = [];
@@ -19,7 +19,7 @@ function main() {
   fs.writeFileSync("bin/" + file.split(".")[0] + ".min.txt", txt, "utf8");
   fs.writeFileSync("bin/iwiaa", makeDecodeCmd(packs.reverse()));
 }
-const chatCounts = (txt) => count(txt.split(""));
+const charCounts = (txt) => count(txt.split(""));
 const count = (strs, a = {}, point = 1) => {
   strs.forEach((c) => {
     a[c] ||= 0;
