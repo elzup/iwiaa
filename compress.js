@@ -1,7 +1,10 @@
 const fs = require("fs");
+
 function main() {
   const file = process.argv[2];
   let txt = fs.readFileSync(file, "utf8");
+  // const counts = chatCounts(txt);
+  // console.log(sortEntries(counts));
 
   const packs = [];
   const len = 21;
@@ -16,23 +19,24 @@ function main() {
   fs.writeFileSync("bin/" + file.split(".")[0] + ".min.txt", txt, "utf8");
   fs.writeFileSync("bin/iwiaa", makeDecodeCmd(packs.reverse()));
 }
-
-const many = (txt) => {
-  return manyPick(txt.substring(0));
+const chatCounts = (txt) => count(txt.split(""));
+const count = (strs, a = {}, point = 1) => {
+  strs.forEach((c) => {
+    a[c] ||= 0;
+    a[c] += point;
+  });
+  return a;
 };
+
+const many = (txt) => manyPick(txt.substring(0));
 const manyPick = (txt) => {
   const counter = {};
-  txt.match(/.{2}/g).forEach((c) => {
-    counter[c] = counter[c] ? counter[c] + 1 : 1;
-  });
-  txt.match(/.{3}/g).forEach((c) => {
-    counter[c] = counter[c] ? counter[c] + 2 : 1;
-  });
-  txt.match(/.{4}/g).forEach((c) => {
-    counter[c] = counter[c] ? counter[c] + 3 : 1;
-  });
-  return Object.entries(counter).sort((a, b) => b[1] - a[1])[0];
+  count(txt.match(/.{2}/g), counter);
+  count(txt.match(/.{3}/g), counter, 2);
+  count(txt.match(/.{4}/g), counter, 3);
+  return sortEntries(counter)[0];
 };
+const sortEntries = (map) => Object.entries(map).sort((a, b) => b[1] - a[1]);
 
 const template = `
 #!/usr/bin/env bash
