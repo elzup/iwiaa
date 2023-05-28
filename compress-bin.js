@@ -41,19 +41,6 @@ function main() {
     buf[i] = parseInt(byte, 2);
   }
   fs.writeFileSync("bin/" + file.split(".")[0] + ".bin", buf);
-
-  // const packs = [];
-  // const len = 21;
-  // for (let i = 0; i < 5; i++) {
-  //   const [s, l] = manyPack(txt);
-  //   if (l < len) break;
-  //   console.log(s, l);
-  //   const c = String.fromCharCode(65 + i);
-  //   txt = txt.replace(new RegExp(s, "g"), c);
-  //   packs.push([s, c]);
-  // }
-  // fs.writeFileSync("bin/" + file.split(".")[0] + ".min.txt", txt, "utf8");
-  // fs.writeFileSync("bin/iwiaa", makeDecodeCmd(packs.reverse()));
 }
 const chatCounts = (txt) => count(txt.split(""));
 const count = (strs, a = {}, point = 1) => {

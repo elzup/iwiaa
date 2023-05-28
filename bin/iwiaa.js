@@ -1,12 +1,10 @@
 #!/usr/bin/env node
+const { readFileSync } = require("fs");
+const { resolve } = require("path");
 
-const fs = require("fs");
-const path = require("path");
+const bin = readFileSync(resolve(__dirname, "iwiaa.bin"));
 
-const bin = fs.readFileSync(path.resolve(__dirname, "iwiaa.bin"));
-const a = [...new Uint8Array(bin)]
-  .map((i) => i.toString(2).padStart(8, "0").split(""))
-  .flat();
+const a = [...bin].map((i) => i.toString(2).padStart(8, "0")).join("");
 
 const binMap = {
   0: " ",
@@ -21,14 +19,12 @@ const binMap = {
 };
 let q = [];
 let s = "";
-a.forEach((b) => {
+a.split("").forEach((b) => {
   q.push(b);
   const t = binMap[q.join("")];
-  if (t) {
-    s += t;
-    q = [];
-  }
+  if (!t) return;
+  s += t;
+  q = [];
 });
 
 console.log(s.trimEnd());
-// process.stdout.write(s);
