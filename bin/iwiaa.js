@@ -30,4 +30,5 @@ a.forEach((b) => {
   }
 });
 
-console.log(s);
+console.log(s.trimEnd());
+// process.stdout.write(s);
