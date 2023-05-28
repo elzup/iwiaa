@@ -8,7 +8,7 @@ npx iwiaa
 
 ## v1.0.0
 
-生 ascii を cat
+cat
 
 - script `iwiaa` 6.63 kB
 
@@ -19,9 +19,9 @@ npx iwiaa
 - decoder `iwiaa` 153 B
 - encoded-data `iwiaa.min.txt` 2.14 kB
 
-## v1.0.?
+## v1.1.0
 
 ascii のま 1-2 文字に対するエントロピー符号化
 
-- TODO decoder `iwiaa` ?
+- TODO decoder `iwiaa` B
 - encoded-data `iwiaa.bin` 1.1 kB

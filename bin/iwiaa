@@ -1,0 +1,2 @@
+#!/usr/bin/env node
+const readFileSync=require("fs")["readFileSync"],resolve=require("path")["resolve"],bin=readFileSync(resolve(__dirname,"iwiaa.bin")),a=[...bin].map(e=>e.toString(2).padStart(8,"0")).join(""),binMap={0:" ",1e3:"=",1001:"/",1010:"#",1011:"%",1100:">",1101:"+",1110:"$",1111:"\n"};let q=[],s="";a.split("").forEach(e=>{q.push(e);e=binMap[q.join("")];e&&(s+=e,q=[])}),console.log(s.trimEnd());
