@@ -1,17 +1,25 @@
 {
   "name": "iwiaa",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "print iwi aa",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elzup/iwiaa.git"
+  },
   "bin": "bin/iwiaa",
   "files": [
     "bin/iwiaa",
-    "bin/iwiaa.bin"
+    "bin/iwiaa.br"
   ],
+  "engines": {
+    "node": ">=12"
+  },
   "scripts": {
-    "test": "npm run build &>/dev/null && test.sh",
+    "start": "node bin/iwiaa",
+    "test": "npm run build > /dev/null 2>&1 && bash test.sh",
     "build": "npm run build:encode && npm run build:decoder",
     "build:encode": "node compress-bin.js iwiaa.txt",
-    "build:decoder": "npx node-minify --compressor uglify-js --input ./iwiaa-bin-decoder.js --output bin/iwiaa && chmod +x bin/iwiaa"
+    "build:decoder": "cp iwiaa-bin-decoder.js bin/iwiaa && chmod +x bin/iwiaa"
   },
   "keywords": [
     "cps"
