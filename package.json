@@ -9,7 +9,7 @@
   "bin": "bin/iwiaa",
   "files": [
     "bin/iwiaa",
-    "bin/iwiaa.br"
+    "bin/a"
   ],
   "engines": {
     "node": ">=12"
