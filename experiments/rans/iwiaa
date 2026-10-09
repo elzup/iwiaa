@@ -1,0 +1,2 @@
+#!/usr/bin/env node
+x=BigInt("0x"+require("fs").readFileSync(__dirname+"/a","hex"));m={};p=l=s=k="";while(x){t=m[e=k+p[l.length]]=m[e]||Array(7).fill(1n);T=0n;for(v of t)T+=v;r=x%T;x/=T;for(j=0;r>=t[j];)r-=t[j++];x=x*t[j]+r;t[j]++;s+=k=" =+/#%\n"[j];l=j>5?(p=l,""):l+k}console.log(s)
